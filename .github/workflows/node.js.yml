@@ -34,7 +34,11 @@ jobs:
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-2016]
+    - uses: actions/download-artifact@main
+      with:
+        name: webpack artifacts
+        path: public
+    - name: npm install, and test
         node-version: [12.x, 14.x]
 
     steps:
